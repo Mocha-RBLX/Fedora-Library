@@ -1,3 +1,7 @@
+--[[
+	Was made by NatsuRBLX#4977
+]]
+
 getgenv().GetMousePosition = function()
     local playerMouse = game.Players.LocalPlayer:GetMouse()
     return playerMouse.X, playerMouse.Y
@@ -78,6 +82,7 @@ getgenv().PointLocation = function(callback)
             TweenService:Create(UIStroke, TweenInfo.new(0.1), {Transparency = 1;}):Play()
 
             pcall(callback, getgenv().GetMousePositionAsCFrame())
+            mouse.Icon = oldIcon
 
             delay(5, function()
                 Frame:Destroy()
@@ -85,7 +90,3 @@ getgenv().PointLocation = function(callback)
         end
     end)
 end
-
-getgenv().PointLocation(function(Position)
-    print(tostring(Position))
-end)
